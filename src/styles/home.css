@@ -1,0 +1,68 @@
+.block1 {
+    background-color: yellow;
+    margin-left: 150px;
+}
+
+.block {
+    margin-left: 150px;
+}
+
+.block1txt {
+    margin-top: 100px;
+    margin-left: 30px;
+}
+
+.btn a {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border-radius: 0;
+}
+
+.links2 a {
+    position: relative;
+    top: 57px;
+    right: 12px;
+    text-decoration: none;
+    padding: 30px 64px;
+    background-color: white;
+    color: black;
+}
+
+.card1 a {
+    text-decoration: none;
+    color: orange;
+}
+
+.cardlt {
+    margin-left: 150px;
+}
+
+.card1 {
+    margin: 10px 20px;
+}
+
+.cardrt {
+    background-image: url('D:\MERN\node&express\MERNProject\Frontend\public\images\p1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 650px;
+    width: 500px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.txt1 {
+    margin-top: 400px;
+    margin-left: 10px;
+}
+
+.link a {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    padding: 15px 40px;
+    position: relative;
+    left: 350px;
+    top: 118px;
+}
