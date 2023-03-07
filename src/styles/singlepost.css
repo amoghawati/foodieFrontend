@@ -1,0 +1,18 @@
+.sptxt1 {
+    width: 200px;
+}
+
+.sptxt {
+    margin-top: 50px;
+    margin-left: 200px;
+    box-shadow: 10px 10px 15px whitesmoke;
+    width: 1000px;
+    height: 550px;
+}
+
+#spbck {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}

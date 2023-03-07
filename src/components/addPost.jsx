@@ -1,97 +1,68 @@
-import Banner from "./banner";
 import axios from "axios";
 import { useState } from "react";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-
-const AddPost = () => {
-    const data = "Add Your Post"
-    let [modal, setModal] = useState(0)
-    let [message, setMessage] = useState("")
+import "../styles/addposts.css";
+import Banner from "./banner";
+// import pst1 from '../images1/pst1'
+const AddPosts = () => {
+    let title1 = "Add Your Post";
+    let [author, setAuthor] = useState("")
     let [title, setTitle] = useState("")
     let [summary, setSummary] = useState("")
     let [image, setImage] = useState("")
-    let [author, setAuthor] = useState("")
     let [location, setLocation] = useState("")
-
-    //modal
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     let addPost = (e) => {
         e.preventDefault()
-        let data = {title,summary,image,location,author}
-        if (title === "" || summary === "" || location === "") {
-            alert("Please fill all the fields")
-        }
-        else {
-            axios.post("http://localhost:5000/add-post", data)
+        let data = { author, title, summary, image, location }
+        if (author && title && summary && image && location) {
+            axios.post('http://localhost:5000/add-Posts', data)
                 .then(res => {
-                    setModal(1)
-                    setMessage(res.data.message)
-                    setShow(true)
+                    alert(res.data.message)
+                }).catch(err => {
+                    alert(err.data.message)
                 })
-                .catch(err => {
-                    setMessage(err.data.message)
-                })
+        } else {
+            alert('Please fill all the fields')
         }
-        console.log();
     }
     return (
-        <div className="addPost">
-            <Banner data={data} />
-            <div className="postForm my-5 d-flex justify-content-center align-items-center">
-                <div className="image col-5">
-                    <img src="/images/pancakes.jpg" loading='lazy' className="rounded-2" width="500" height="670" alt="" />
+        <div className="addposts">
+            <div className="banner">
+                <Banner data={title1} />
+            </div>
+            <div className="blockaddpt d-flex mt-5 ">
+                <div className="img">
+                    <img src="/images/food.jpg" alt="" height="500px" width="500px" />
                 </div>
-                <div className="form col-5">
-                    <h1 className="fw-bolder fs-1">ADD POST</h1>
-                    <div className="line my-3"></div>
-                    <form action="" onSubmit={addPost}>
-                        <div className="author">
-                            <label htmlFor="author">Author</label>
-                            <input type="text" className="form-control my-2 rounded-0" id="author" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} />
+                <div className="txt ms-5">
+                    <h1><u><b>ADD POST</b></u></h1>
+                    <form action="" className="form" onSubmit={addPost}>
+                        <div className="author mt-2">
+                            <label htmlFor="">Author</label>
+                            <input type="text" className="form-control " placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} name="author" />
                         </div>
-                        <div className="title">
+                        <div className="title mt-2">
                             <label htmlFor="">Title</label>
-                            <input name="title" className="form-control my-2 rounded-0" type="text" placeholder="title of the post" value={title} onChange={(e) => setTitle(e.target.value)} />
+                            <input type="text" className="form-control" placeholder="title of the post" value={title} onChange={(e) => setTitle(e.target.value)} name="title" />
                         </div>
-                        <div className="summary">
+                        <div className="summary mt-2">
                             <label htmlFor="">Summary</label>
-                            <textarea rows="5" name="summary" className="form-control my-2 rounded-0" type="text" placeholder="summary of the post" value={summary} onChange={(e) => setSummary(e.target.value)} />
+                            <textarea type="text" className="form-control" placeholder="Summary of the post" value={summary} onChange={(e) => setSummary(e.target.value)} name="summary" />
                         </div>
-                        <div className="image">
-                            <label htmlFor="">Image</label>
-                            <input name="image" className="form-control my-2 rounded-0" type="text" placeholder="image of the post" value={image} onChange={(e) => setImage(e.target.value)} />
+                        <div className="image mt-2">
+                            <label htmlFor="">image</label>
+                            <input type="text" className="form-control" placeholder="image of the post" value={image} onChange={(e) => setImage(e.target.value)} name="image" />
                         </div>
-                        <div className="location">
+                        <div className="location mt-2">
                             <label htmlFor="">Location</label>
-                            <input name="location" className="form-control my-2 rounded-0" type="text" placeholder="location of the post" value={location} onChange={(e) => setLocation(e.target.value)} />
+                            <input type="text" className="form-control" placeholder="loaction of the post" value={location} onChange={(e) => setLocation(e.target.value)} name="location" />
                         </div>
-                        <button type='submit' className="btn orange rounded-2 btn-lg my-4">Submit Post</button>
+                        <button className="btn mt-3" type="submit">Submit Post</button>
                     </form>
+
                 </div>
             </div>
-            {modal === 1 ? <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>{message}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Your post regarding {title} has been added successfully</Modal.Body>
-                <Modal.Footer>
-                    <Button className='orange border-0' onClick={handleClose}>
-                        OK
-                    </Button>
-                </Modal.Footer>
-            </Modal> : <Modal show={show} onHide={handleClose}>
-                <Modal.Body>{message}</Modal.Body>
-                <Modal.Footer>
-                    <Button className='orange border-0' onClick={handleClose}>
-                        OK
-                    </Button>
-                </Modal.Footer>
-            </Modal>}
         </div>
     );
-}
+};
 
-export default AddPost;
+export default AddPosts;

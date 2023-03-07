@@ -1,0 +1,17 @@
+#redbtn {
+    text-decoration: none;
+    padding: 10px 10px;
+    background-color: black;
+    color: white;
+}
+
+.posts_list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.pot {
+    box-shadow: 10px 10px 8px whitesmoke;
+    height: 480px;
+}

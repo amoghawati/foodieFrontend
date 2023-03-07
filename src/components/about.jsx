@@ -1,48 +1,77 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Banner from "./banner";
-
+import axios from "axios";
+import "../styles/about.css"
 const About = () => {
-    const title = "About Us"
-    const [list,setList] = useState([
-        {
-            value:10,
-            about:"Years of Experience"
-        },
-        {
-            value:200,
-            about:"Foods"
-        },
-        {
-            value:300,
-            about:"Lifestyle"
-        },
-        {
-            value:40,
-            about:"Happy Customers"
+    let [add,setAdd]=useState('')
+    useEffect(()=>
+    {
+        let fetchData=async()=>{
+            let response =await axios.get(`http://localhost:5000/posts`)
+            let data=await response.data
+         console.log(setAdd(data))   
         }
-    ])
+        fetchData()
+    })
+
+        let [add1,setAdd1]=useState('')
+        useEffect(()=>
+        {
+            let fetchData=async()=>{
+                let response =await axios.get(`http://localhost:5000/users`)
+                let data=await response.data
+             console.log(setAdd1(data))   
+            }
+            fetchData()
+        })
+    let title="About page"
     return ( 
         <div className="about">
-            <Banner data={title} />
-            <div className="aboutFoodie my-5 d-flex justify-content-center">
-                <div className="aboutImage">
-                    <img className="rounded-2" width="450" height="600" src="/images/healthy.jpg" alt="" />
+      <div className="abtbantitle">
+        <Banner data={title} />
+      </div>
+      <div className="abtblock d-flex">
+        <div className="abtimg">
+<img src="/images/pizza.jpg" alt="" height="700px" width="600px"/>
+        </div>
+        <div className="abttoptxt ms-5 " >
+            <div className="hed mt-4">
+              <h1><b>  About Stories</b></h1>
+            </div>
+            <div className="para fs-5" >
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            </div>
+            <div className="abttxt d-flex flex-wrap mt-0 ">
+                <div className="txt1 d-block" >
+                   <div className="txt1pa">
+                   <h3>10</h3>
+                    <p>Years of Experienced</p>
+                   </div>
                 </div>
-                <div className="aboutInfo w-50 p-5">
-                    <h2 className="fw-bolder fs-1">About Foodie</h2>
-                    <div className="line my-3"></div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat tenetur, voluptate quod quis laboriosam vitae?</p>
-                    <div className="lists d-flex flex-wrap justify-content-between">
-                        {list.map(item => (
-                            <div className="list bg-light p-5 border text-center" key={item.value} style={{width:"50%"}}>
-                                <h1 className="fw-bolder">{item.value}</h1>
-                                <p className="text-secondary">{item.about}</p>
-                            </div>
-                        ))}
+                <div className="txt1 ms-5">
+                <div className="txt1pa">
+                <h3>{add.length}</h3>
+                    <p>Foods</p>
+                </div>
+                </div>
+                <div className="txt1bot d-flex">
+                <div className="txt1" >
+             <div className="txt1pa">
+             <h3>300</h3>
+                    <p>Lifestyle</p>
+             </div>
+                    </div>
+                    <div className="txt1 ms-5">
+                    <div className="txt1pa">
+                    <h3>{add1.length}</h3>
+                    <p>Happy Customers</p>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
+      </div>
+    </div>
      );
 }
  

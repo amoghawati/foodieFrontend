@@ -3,7 +3,7 @@
     margin-left: 150px;
 }
 
-.block {
+.blockho {
     margin-left: 150px;
 }
 
@@ -12,7 +12,7 @@
     margin-left: 30px;
 }
 
-.btn a {
+.btn1 a {
     padding: 10px 20px;
     background-color: black;
     color: white;
@@ -21,7 +21,7 @@
 
 .links2 a {
     position: relative;
-    top: 57px;
+    top: 70px;
     right: 12px;
     text-decoration: none;
     padding: 30px 64px;
@@ -43,7 +43,7 @@
 }
 
 .cardrt {
-    background-image: url('D:\MERN\node&express\MERNProject\Frontend\public\images\p1.jpeg');
+    background-image: url('D:/MERN/node&express/MERNProject/Frontend/public/images/pancakes.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 650px;

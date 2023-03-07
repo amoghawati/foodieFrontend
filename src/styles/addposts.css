@@ -1,0 +1,12 @@
+.blockaddpt {
+    position: relative;
+    left: 250px;
+}
+
+.form input {
+    width: 500px;
+}
+
+.btn {
+    background-color: rgb(255, 85, 0);
+}

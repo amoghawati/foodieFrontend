@@ -2,7 +2,7 @@ import Banner from "./banner";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-
+import "../styles/singlepost.css"
 const SinglePost = () => {
     const title = "Single Post";
     const [post, setPosts] = useState({})
@@ -19,29 +19,28 @@ const SinglePost = () => {
     }, [post])
     return (
         <div className="singlepost">
-            <Banner data={title} />
-            <div className="blogInfo text-center my-5 d-flex justify-content-center">
-                <div className="image col-5" >
-                    <img src={post.image} className="rounded-2" alt="" height="900" width="700" />
+            <div className="spban">
+                <Banner data={title} />
+
+            </div>
+            <div className="sptxt d-flex">
+                <div className="spimg">
+                    <img src={post.image} alt="" height="500px" width="600px" />
                 </div>
-                <div className="info col-5 text-start">
-                    <h1 className="my-3">{post.title}</h1>
-                    <div className="line mb-3"></div>
-                    <p>{post.summary}</p>
-                    <div className="location">
-                        <h2> <img width="30" src="/images/location.svg" alt="" /> Location</h2>
-                        <div className="line mb-3"></div>
-                        <iframe src={post.location}
-                            className="my-3"
-                            width="600" height="450"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div className="sptxt1 ms-3 mt-3">
+                    <div className="sptitle">
+                        <h2><b>{post.title}</b></h2>
+                    </div>
+                    <div className="spsummary mt-3">
+                        <p><b>Summary:</b>{post.summary}</p>
+                    </div>
+                    <div className="sploc">
+                        <iframe src={post.location} frameborder="0"></iframe>
+                    </div>
+                    <div className="splink mt-3">
+                        <Link to="/home/foods" id="spbck">Back to Posts</Link>
                     </div>
                 </div>
-            </div>
-            <div className="linkBtn text-center">
-                <Link to='/home/food' className="btn btn-dark btn-lg rounded-1 my-4 homeBtn">&lt; Go back to Posts</Link>
             </div>
         </div>
     );

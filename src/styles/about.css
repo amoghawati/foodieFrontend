@@ -1,0 +1,31 @@
+.abtblock {
+    /* padding-left: 150px; */
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 700px;
+    padding: 100px 180px;
+}
+
+.abttxt .txt1 {
+    height: 200px;
+    width: 250px;
+    justify-content: center;
+    background-color: whitesmoke;
+    box-shadow: 10px 10px 8px rgba(197, 193, 193, 0.726);
+    text-align: center;
+}
+
+.txt1pa {
+    position: relative;
+    top: 50px;
+}
+
+.abttxt {
+    position: relative;
+    bottom: 360px;
+}
+
+.txt1bot {
+    position: relative;
+    bottom: 350px;
+}
